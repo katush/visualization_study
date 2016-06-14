@@ -52,6 +52,16 @@ public class SecondScreen extends javax.swing.JPanel {
         }
         return true;
     }
+    
+    public String getData(){
+        String data = "";
+        data += "UCO: " + ucoTextField.getText() + "\n";
+        data += "Pohlavi: " + (jRadioButton1.isSelected()?"Muz":"Zena") + "\n";
+        data += "Vek: " + ageTextField.getText() + "\n";
+        data += "Identifikaci/verifikaci osob podle obliceje se venuji jako: " + (jRadioButton3.isSelected()?"Odbornik":jRadioButton5.isSelected()?"Student":"Nemam zkusenosti") + "\n";
+        data += "3D grafiku a pokrocile vizualizace s pocitacovou podporou vyuzivam jako: " + (jRadioButton6.isSelected()?"Odbornik":jRadioButton7.isSelected()?"Student":"Nemam zkusenosti") + "\n";
+        return data;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

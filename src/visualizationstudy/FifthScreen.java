@@ -49,7 +49,7 @@ public class FifthScreen extends javax.swing.JPanel {
                 errorLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visualizationstudy/resources/red_error_icon.png")));
                 errorLabel.setText("Zvolte odpověď.");
                 return true;
-            } else if (counter <= 19) {
+            } else if (counter < 19) {
                 if (buttonGroup1.getSelection().equals(sameRadioButton.getModel())) {
                     answers[counter] = 1;
                 }
@@ -285,6 +285,10 @@ public class FifthScreen extends javax.swing.JPanel {
 
         } catch (IOException ex) {
         }
+    }
+    
+    public int[] getAnswers(){
+        return answers;
     }
 
 

@@ -217,7 +217,15 @@ public class Main extends javax.swing.JFrame {
     }
     
     private void save(){
-        
+        String results = "";
+         results +=((SecondScreen)panels.get(1)).getData();
+         results +="Ukol 1\n";
+         for(int i= 0; i<((FifthScreen)panels.get(4)).getAnswers().length; i++){
+             results += (i+1) + (((FifthScreen)panels.get(4)).getAnswers()[i]==1?". stejny jedinec":". ruzne osoby") +"\n";
+         }
+         results +="Ukol 2\n";
+         
+         results +="Ukol 3\n";
     }
 
     /**
