@@ -6,6 +6,13 @@
 package visualizationstudy;
 
 import java.awt.Color;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFrame;
@@ -224,8 +231,40 @@ public class Main extends javax.swing.JFrame {
              results += (i+1) + (((FifthScreen)panels.get(4)).getAnswers()[i]==1?". stejny jedinec":". ruzne osoby") +"\n";
          }
          results +="Ukol 2\n";
-         
+         for(int i= 0; i<((SeventhScreen)panels.get(6)).getAnswers().length; i++){
+             String answer ="";
+             switch (((SeventhScreen)panels.get(6)).getAnswers()[i]){
+                 case 1:answer =  ". sequential";
+                 break;
+                 case 2:answer =  ". diverging";
+                 break;
+                 case 3:answer =  ". rainbow";
+                 break;
+             }
+             results += (i+1) + answer +"\n";
+         }
          results +="Ukol 3\n";
+         for(int i= 0; i<((NinthScreen)panels.get(8)).getAnswers().length; i++){
+             results += (i+1) + ". " +((NinthScreen)panels.get(8)).getAnswers()[i] +"\n";
+         }
+         
+          BufferedWriter writer = null;
+        try {
+            String timeLog = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+            File logFile = new File(timeLog+".txt");
+            System.out.println(logFile.getCanonicalPath());
+
+            writer =new BufferedWriter(new OutputStreamWriter( new FileOutputStream(logFile), "UTF-8")); 
+            writer.write(results);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {
+            }
+        }
+         
     }
 
     /**
