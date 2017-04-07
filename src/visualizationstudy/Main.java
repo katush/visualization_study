@@ -228,31 +228,54 @@ public class Main extends javax.swing.JFrame {
          results +=((SecondScreen)panels.get(1)).getData();
          results +="Ukol 1\n";
          for(int i= 0; i<((FifthScreen)panels.get(4)).getAnswers().length; i++){
-             results += (i+1) + (((FifthScreen)panels.get(4)).getAnswers()[i]==1?". stejny jedinec":". ruzne osoby") +"\n";
+             results +=(i+1) + ". " + ((FifthScreen)panels.get(4)).getFolders().get(i)+ ": ";
+             results += ((((FifthScreen)panels.get(4)).getAnswers()[i]==1?"stejny jedinec":"ruzne osoby") +"\n").toUpperCase();
          }
          results +="Ukol 2\n";
          for(int i= 0; i<((SeventhScreen)panels.get(6)).getAnswers().length; i++){
              String answer ="";
+             answer +=(i+1) + ". " + ((SeventhScreen)panels.get(6)).getFolders().get(i)+ ": ";
              switch (((SeventhScreen)panels.get(6)).getAnswers()[i]){
-                 case 1:answer =  ". sequential";
+                 case 1:answer +=  "sequential".toUpperCase();
                  break;
-                 case 2:answer =  ". diverging";
+                 case 2:answer +=  "diverging".toUpperCase();
                  break;
-                 case 3:answer =  ". rainbow";
+                 case 3:answer +=  "rainbow".toUpperCase();
                  break;
              }
              results += (i+1) + answer +"\n";
          }
          results +="Ukol 3\n";
          for(int i= 0; i<((NinthScreen)panels.get(8)).getAnswers().length; i++){
-             results += (i+1) + ". " +((NinthScreen)panels.get(8)).getAnswers()[i] +"\n";
+             results +=(i+1) + ". " + ((NinthScreen)panels.get(8)).getFolders().get(i)+ ": ";
+             String answ = ((NinthScreen)panels.get(8)).getAnswers()[i];
+             String answer = "";
+             if(answ.contains("diverging")){
+                 answer = "COLORMAP DIVERGING";
+             }else if(answ.contains("rainbow")){
+                 answer = "COLORMAP RAINBOW";
+             }else if(answ.contains("sequential")){
+                 answer = "COLORMAP SEQUENTIAL";
+             }else if(answ.contains("crosscuts")){
+                 answer = "CROSSCUTS";
+             }else if(answ.contains("glyphs")){
+                 answer = "GLYPHS";
+             }else if(answ.contains("fog") && !answ.contains("superimposition")){
+                 answer = "FOG";
+             }else if(answ.contains("fog") && answ.contains("superimposition")){
+                 answer = "SUPERIMPOSITION + FOG";
+             }
+             else if(!answ.contains("fog") && answ.contains("superimposition")){
+                 answer = "SUPERIMPOSITION";
+             }
+             results += answer +"\n";
          }
          
           BufferedWriter writer = null;
         try {
             String timeLog = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
             File logFile = new File(timeLog+".txt");
-            System.out.println(logFile.getCanonicalPath());
+                System.out.println(logFile.getCanonicalPath());
 
             writer =new BufferedWriter(new OutputStreamWriter( new FileOutputStream(logFile), "UTF-8")); 
             writer.write(results);

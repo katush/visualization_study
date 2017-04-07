@@ -1,0 +1,38 @@
+UCO: 7
+Pohlavi: Zena
+Vek: 4
+Identifikaci/verifikaci osob podle obliceje se venuji jako: Student
+3D grafiku a pokrocile vizualizace s pocitacovou podporou vyuzivam jako: Student
+Ukol 1
+1. image12_31_1_3_neutral: STEJNY JEDINEC
+2. image18_2091_1946_modifications: STEJNY JEDINEC
+3. image11_446_1667_neutral: RUZNE OSOBY
+4. image16_3317_3309_expressions: STEJNY JEDINEC
+5. image19_1098_2038_neutral: RUZNE OSOBY
+6. image13_3315_3298_expressions: RUZNE OSOBY
+7. image20_2076_0_1_modifications: STEJNY JEDINEC
+8. image14_2058_2035_modifications: STEJNY JEDINEC
+9. image04_3287_N_G4_expressions: RUZNE OSOBY
+10. image06_2035_2113_modifications: RUZNE OSOBY
+Ukol 2
+11. image01_3316_3068_expressions: DIVERGING
+22. image02_1097_1098_neutral: RAINBOW
+33. image03_2060_0_1_modifications: SEQUENTIAL
+44. image04_2091_2060_modifications: DIVERGING
+55. image05_3316_3317_expressions: RAINBOW
+66. image06_1645_90_neutral: SEQUENTIAL
+77. image07_61_1088_neutral: DIVERGING
+88. image08_3343_N_G4_expressions: RAINBOW
+99. image09_2060_2091_modifications: SEQUENTIAL
+1010. image10_189_05_neutral: DIVERGING
+Ukol 3
+1. image10_2051_1075_neutral: GLYPHS
+2. image19_19_1_3_neutral: SUPERIMPOSITION
+3. image15_0035_3303_expressions: COLORMAP SEQUENTIAL
+4. image05_2076_2063_modifications: FOG
+5. image07_3316_3342_expressions: SUPERIMPOSITION + FOG
+6. image20_3315_3305_expressions: SUPERIMPOSITION
+7. image03_41_1841_neutral: FOG
+8. image13_140_1097_neutral: SUPERIMPOSITION
+9. image06_482_1663_neutral: CROSSCUTS
+10. image11_1946_0_1_modifications: COLORMAP RAINBOW

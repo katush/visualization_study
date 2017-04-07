@@ -1,0 +1,38 @@
+UCO: 5
+Pohlavi: Zena
+Vek: 4
+Identifikaci/verifikaci osob podle obliceje se venuji jako: Student
+3D grafiku a pokrocile vizualizace s pocitacovou podporou vyuzivam jako: Odbornik
+Ukol 1
+. image16_3317_3309_expressions1stejny jedinec
+. image06_2035_2113_modifications2stejny jedinec
+. image19_1098_2038_neutral3ruzne osoby
+. image07_90_1645_neutral4stejny jedinec
+. image14_2058_2035_modifications5stejny jedinec
+. image04_3287_N_G4_expressions6ruzne osoby
+. image02_1088_1878_modifications7stejny jedinec
+. image13_3315_3298_expressions8ruzne osoby
+. image05_3104_3297_expressions9ruzne osoby
+. image01_3068_3313_expressions10ruzne osoby
+Ukol 2
+1. diverging
+2. diverging
+3. diverging
+4. sequential
+5. diverging
+6. diverging
+7. diverging
+8. diverging
+9. diverging
+10. diverging
+Ukol 3
+1. 3315_3305_crosscuts.jpg
+2. 02_3287_colormap_rainbow.jpg
+3. 1075_1645_glyphs.jpg
+4. 140_1097_crosscuts.jpg
+5. 2076_2063_colormap_diverging.jpg
+6. 35_3303_superimpossition.jpg
+7. 3316_3342_crosscuts.jpg
+8. 2060_1088_fog.jpg
+9. 2058_2037_colormap_rainbow.jpg
+10. 3068_3242_colormap_sequential.jpg

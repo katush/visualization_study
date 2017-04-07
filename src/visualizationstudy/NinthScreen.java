@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
@@ -29,9 +30,10 @@ import javax.swing.SwingUtilities;
 public class NinthScreen extends javax.swing.JPanel {
 
     private ArrayList<ArrayList<File>> allImages = new ArrayList<>();
-    private int[] answers = new int[20];
+    private int[] answers = new int[10];
     private ImageButton[] buttons = new ImageButton[7];
     private int counter;
+    private ArrayList<String> folders = new ArrayList<>();
 
     /**
      * Creates new form FifthScreen
@@ -45,7 +47,7 @@ public class NinthScreen extends javax.swing.JPanel {
     }
 
     public boolean next() {
-        if (counter <= 19) {
+        if (counter <= 9) {
             boolean answer = false;
             for (ImageButton button : buttons) {
                 if (button.getHighlighted()) {
@@ -56,9 +58,9 @@ public class NinthScreen extends javax.swing.JPanel {
                 errorLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visualizationstudy/resources/red_error_icon.png")));
                 errorLabel.setText("Zvolte odpověď.");
                 return true;
-            } else if (counter < 19) {
+            } else if (counter < 9) {
                 counter++;
-                countLabel.setText(counter + 1 + "/20");
+                countLabel.setText(counter + 1 + "/10");
                 addImages();
                 if (answers[counter] != 0) {
                     buttons[answers[counter] - 1].setHighlighted(true);
@@ -80,7 +82,7 @@ public class NinthScreen extends javax.swing.JPanel {
         errorLabel.setText("");
         if (counter > 0) {
             counter--;
-            countLabel.setText(counter + 1 + "/20");
+            countLabel.setText(counter + 1 + "/10");
             addImages();
             buttons[answers[counter] - 1].setHighlighted(true);
             buttons[answers[counter] - 1].setColor(Color.GREEN);
@@ -185,7 +187,7 @@ public class NinthScreen extends javax.swing.JPanel {
 
         countLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         countLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        countLabel.setText("1/20");
+        countLabel.setText("1/10");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -244,10 +246,14 @@ public class NinthScreen extends javax.swing.JPanel {
                 images.addAll(Arrays.asList(ic.listFiles()));
                 Collections.shuffle(images);
                 allImages.add(images);
+                folders.add(fl.getName());
             }
 
         } catch (IOException ex) {
         }
+        long seed = System.nanoTime();
+        Collections.shuffle(allImages, new Random(seed));
+        Collections.shuffle(folders, new Random(seed));
     }
     
     public String[] getAnswers(){
@@ -256,6 +262,10 @@ public class NinthScreen extends javax.swing.JPanel {
             ans[i] = allImages.get(i).get(answers[i]-1).getName();
         }
         return ans;
+    }
+    
+    public ArrayList<String> getFolders() {
+        return folders;
     }
 
 

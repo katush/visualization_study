@@ -1,0 +1,38 @@
+UCO: 4
+Pohlavi: Zena
+Vek: 4
+Identifikaci/verifikaci osob podle obliceje se venuji jako: Student
+3D grafiku a pokrocile vizualizace s pocitacovou podporou vyuzivam jako: Student
+Ukol 1
+1. ruzne osoby
+2. ruzne osoby
+3. ruzne osoby
+4. ruzne osoby
+5. stejny jedinec
+6. stejny jedinec
+7. stejny jedinec
+8. stejny jedinec
+9. stejny jedinec
+10. stejny jedinec
+Ukol 2
+1. diverging
+2. diverging
+3. diverging
+4. diverging
+5. diverging
+6. diverging
+7. diverging
+8. diverging
+9. diverging
+10. diverging
+Ukol 3
+1. 1075_1645_superimposition_fog.jpg
+2. 02_3287_colormap_diverging.jpg
+3. 2058_2076_colormap_diverging.jpg
+4. 3068_3242_superimposition.jpg
+5. 2051_1075_colormap_rainbow.jpg
+6. 1049_90_fog.jpg
+7. 3316_3342_fog.jpg
+8. 19_1_3_superimposition.jpg
+9. 3302_N_G4_colormap_rainbow.jpg
+10. 41_1841_superimposition.jpg

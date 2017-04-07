@@ -12,6 +12,8 @@ import static java.io.File.separatorChar;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
@@ -28,8 +30,9 @@ import javax.swing.SwingUtilities;
 public class FifthScreen extends javax.swing.JPanel {
 
     private ArrayList<ArrayList<File>> allImages = new ArrayList<>();
-    private int[] answers = new int[20];
-    private int[] order = {2,0,1,6,7,4,5,3,8};
+    private int[] answers = new int[10];
+    private ArrayList<String> folders = new ArrayList<String>();
+    private int[] order = {2,0,1,6,7,4,5,3};
     private int counter;
 
     /**
@@ -44,12 +47,12 @@ public class FifthScreen extends javax.swing.JPanel {
     }
 
     public boolean next() {
-        if (counter <= 19) {
+        if (counter <= 9) {
             if (buttonGroup1.getSelection() == null) {
                 errorLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/visualizationstudy/resources/red_error_icon.png")));
                 errorLabel.setText("Zvolte odpověď.");
                 return true;
-            } else if (counter < 19) {
+            } else if (counter < 9) {
                 if (buttonGroup1.getSelection().equals(sameRadioButton.getModel())) {
                     answers[counter] = 1;
                 }
@@ -57,7 +60,7 @@ public class FifthScreen extends javax.swing.JPanel {
                     answers[counter] = 2;
                 }
                 counter++;
-                countLabel.setText(counter + 1 + "/20");
+                countLabel.setText(counter + 1 + "/10");
                 if (answers[counter] == 0) {
                     buttonGroup1.clearSelection();
                 } else {
@@ -77,7 +80,7 @@ public class FifthScreen extends javax.swing.JPanel {
         errorLabel.setText("");
         if (counter > 0) {
             counter--;
-            countLabel.setText(counter + 1 + "/20");
+            countLabel.setText(counter + 1 + "/10");
             buttonGroup1.setSelected(answers[counter] == 1 ? sameRadioButton.getModel() : diffRadioButton.getModel(), true);
             addImages();
             return true;
@@ -87,7 +90,7 @@ public class FifthScreen extends javax.swing.JPanel {
 
     private void addImages() {
         jPanel1.removeAll();
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 8; i++) {
             File f = new File(allImages.get(counter).get(order[i]).getParent());
             final String image = f.getParent() + separatorChar + allImages.get(counter).get(order[i]).getName();
             ImageButton b = new ImageButton();
@@ -191,7 +194,7 @@ public class FifthScreen extends javax.swing.JPanel {
 
         countLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         countLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        countLabel.setText("1/20");
+        countLabel.setText("1/10");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -281,15 +284,27 @@ public class FifthScreen extends javax.swing.JPanel {
                 images.addAll(Arrays.asList(ic.listFiles()));
                 //shuffleArrayList(images);
                 allImages.add(images);
+                folders.add(fl.getName());
             }
 
         } catch (IOException ex) {
         }
+        long seed = System.nanoTime();
+        Collections.shuffle(allImages, new Random(seed));
+        Collections.shuffle(folders, new Random(seed));
     }
     
     public int[] getAnswers(){
         return answers;
     }
+
+    public ArrayList<String> getFolders() {
+        return folders;
+    }
+
+    
+    
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

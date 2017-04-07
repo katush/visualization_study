@@ -32,6 +32,7 @@ public class SeventhScreen extends javax.swing.JPanel {
      private int[] order = {2,0,1};
     private ImageButton[] buttons = new ImageButton[3];
     private int counter;
+    private ArrayList<String> folders = new ArrayList<>();
 
     /**
      * Creates new form FifthScreen
@@ -239,14 +240,19 @@ public class SeventhScreen extends javax.swing.JPanel {
                 images.addAll(Arrays.asList(ic.listFiles()));
                 //shuffleArrayList(images);
                 allImages.add(images);
+                folders.add(fl.getName());
             }
 
         } catch (IOException ex) {
         }
     }
     
-       public int[] getAnswers(){
+    public int[] getAnswers(){
         return answers;
+    }
+       
+    public ArrayList<String> getFolders() {
+        return folders;
     }
 
 

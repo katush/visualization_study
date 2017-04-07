@@ -1,0 +1,38 @@
+UCO: 4
+Pohlavi: Zena
+Vek: 4
+Identifikaci/verifikaci osob podle obliceje se venuji jako: Student
+3D grafiku a pokrocile vizualizace s pocitacovou podporou vyuzivam jako: Student
+Ukol 1
+1. image13_3315_3298_expressions: STEJNY JEDINEC
+2. image01_3068_3313_expressions: STEJNY JEDINEC
+3. image20_2076_0_1_modifications: STEJNY JEDINEC
+4. image14_2058_2035_modifications: RUZNE OSOBY
+5. image07_90_1645_neutral: STEJNY JEDINEC
+6. image02_1088_1878_modifications: RUZNE OSOBY
+7. image12_31_1_3_neutral: STEJNY JEDINEC
+8. image06_2035_2113_modifications: RUZNE OSOBY
+9. image09_3297_3340_expressions: RUZNE OSOBY
+10. image03_50_1075_neutral: RUZNE OSOBY
+Ukol 2
+11. image01_3316_3068_expressions: DIVERGING
+22. image02_1097_1098_neutral: DIVERGING
+33. image03_2060_0_1_modifications: DIVERGING
+44. image04_2091_2060_modifications: RAINBOW
+55. image05_3316_3317_expressions: SEQUENTIAL
+66. image06_1645_90_neutral: DIVERGING
+77. image07_61_1088_neutral: DIVERGING
+88. image08_3343_N_G4_expressions: DIVERGING
+99. image09_2060_2091_modifications: DIVERGING
+1010. image10_189_05_neutral: DIVERGING
+Ukol 3
+1. image15_0035_3303_expressions: 1. 35_3303_fog.jpg
+2. image05_2076_2063_modifications: 2. 2076_2063_superimposition.jpg
+3. image02_2060_25_modifications: 3. 2060_25_colormap_rainbow.jpg
+4. image16_1075_1645_neutral: 4. 1075_1645_crosscuts.jpg
+5. image08_3302_N_G4_expressions: 5. 3302_N_G4_glyphs.jpg
+6. image04_2058_2037_modifications: 6. 2058_2037_superimposition_fog.jpg
+7. image13_140_1097_neutral: 7. 140_1097_superimposition.jpg
+8. image12_3068_3242_expressions: 8. 3068_3242_fog.jpg
+9. image01_2058_2076_modifications: 9. 2058_2076_colormap_sequential.jpg
+10. image09_2060_2084_modifications: 10. 2060_2084_colormap_diverging.jpg
