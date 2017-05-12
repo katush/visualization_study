@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -25,7 +26,12 @@ import javax.swing.JPanel;
 public class Main extends javax.swing.JFrame {
 
     private int activeIndex;
+    private int screencounter;
     private Map<Integer, JPanel> panels;
+    private Map<Integer, Long> times;
+    long timeStartProgram;
+    long timeEndProgram;
+    private Task task;
 
     /**
      * Creates new form Main
@@ -33,9 +39,15 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         registerScreens();
+        times = new HashMap<>();
         jPanel1.add(panels.get(activeIndex));
         jPanel1.revalidate();
         jPanel1.repaint();
+        screencounter = 0;
+        Timer timer = new Timer();
+        task = new Task(timerLabel, timer, 0);
+        timer.scheduleAtFixedRate(task, 0, 1000);
+        
     }
 
     private void registerScreens() {
@@ -45,22 +57,24 @@ public class Main extends javax.swing.JFrame {
         panels.put(0, p0);
         SecondScreen p1 = new SecondScreen();
         panels.put(1, p1);
+        BarvocitScreen pb = new BarvocitScreen();
+        panels.put(2, pb);
         ThirdScreen p2 = new ThirdScreen();
-        panels.put(2, p2);
+        panels.put(3, p2);
         FourthScreen p3 = new FourthScreen();
-        panels.put(3, p3);
+        panels.put(4, p3);
         FifthScreen p4 = new FifthScreen();
-        panels.put(4, p4);
+        panels.put(5, p4);
         SixthScreen p5 = new SixthScreen();
-        panels.put(5, p5);
+        panels.put(6, p5);
         SeventhScreen p6 = new SeventhScreen();
-        panels.put(6, p6);
+        panels.put(7, p6);
         EightScreen p7 = new  EightScreen();
-        panels.put(7, p7);
+        panels.put(8, p7);
         NinthScreen p8 = new  NinthScreen();
-        panels.put(8, p8);
+        panels.put(9, p8);
         TenthScreen p9 = new  TenthScreen();
-        panels.put(9, p9);
+        panels.put(10, p9);
 
     }
 
@@ -78,6 +92,7 @@ public class Main extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        timerLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Study");
@@ -118,20 +133,26 @@ public class Main extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
+        timerLabel.setText("Time:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(timerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 0, 0)
+                .addComponent(timerLabel))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,6 +170,14 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        task.stop();
+        times.put(screencounter, task.getCompleteTime());
+        screencounter--;
+        Timer timer = new Timer();
+        task = new Task(timerLabel, timer,times.containsKey(screencounter) ? times.get(screencounter) : 0);
+        timer.scheduleAtFixedRate(task, 0, 1000);
+        
+        
         if (panels.get(activeIndex) instanceof FifthScreen) {
             if (!((FifthScreen) panels.get(activeIndex)).back()) {
                 previousPanel();
@@ -169,8 +198,19 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        task.stop();
+        times.put(screencounter, task.getCompleteTime());
+        screencounter++;
+        Timer timer = new Timer();
+        task = new Task(timerLabel, timer,times.containsKey(screencounter) ? times.get(screencounter) : 0);
+        timer.scheduleAtFixedRate(task, 0, 1000);
+        
         if (panels.get(activeIndex) instanceof SecondScreen) {
             if (((SecondScreen) panels.get(activeIndex)).validateForm()) {
+                nextPanel();
+            }
+        } else if (panels.get(activeIndex) instanceof BarvocitScreen) {
+            if (((BarvocitScreen) panels.get(activeIndex)).validateForm()) {
                 nextPanel();
             }
         } else if (panels.get(activeIndex) instanceof FifthScreen) {
@@ -187,7 +227,6 @@ public class Main extends javax.swing.JFrame {
             }
         }else if (panels.get(activeIndex) instanceof TenthScreen) {
             save();
-            System.exit(0);
         }else {
             nextPanel();
         }
@@ -226,16 +265,19 @@ public class Main extends javax.swing.JFrame {
     private void save(){
         String results = "";
          results +=((SecondScreen)panels.get(1)).getData();
+         results +=((BarvocitScreen)panels.get(2)).getData();
          results +="Ukol 1\n";
-         for(int i= 0; i<((FifthScreen)panels.get(4)).getAnswers().length; i++){
-             results +=(i+1) + ". " + ((FifthScreen)panels.get(4)).getFolders().get(i)+ ": ";
-             results += ((((FifthScreen)panels.get(4)).getAnswers()[i]==1?"stejny jedinec":"ruzne osoby") +"\n").toUpperCase();
+         for(int i= 0; i<((FifthScreen)panels.get(5)).getAnswers().length; i++){
+             results +=(i+1) + "." + ((FifthScreen)panels.get(5)).getFolders().get(i)+ ": \n";
+             results += times.get(i+5) + " ms \n";
+             results += ((((FifthScreen)panels.get(5)).getAnswers()[i]==1?"stejny jedinec":"ruzne osoby") +"\n").toUpperCase();
          }
          results +="Ukol 2\n";
-         for(int i= 0; i<((SeventhScreen)panels.get(6)).getAnswers().length; i++){
+         for(int i= 0; i<((SeventhScreen)panels.get(7)).getAnswers().length; i++){
              String answer ="";
-             answer +=(i+1) + ". " + ((SeventhScreen)panels.get(6)).getFolders().get(i)+ ": ";
-             switch (((SeventhScreen)panels.get(6)).getAnswers()[i]){
+             answer +=(i+1) + ". " + ((SeventhScreen)panels.get(7)).getFolders().get(i)+ ": \n";
+             answer += times.get(i+16) + " ms \n";
+             switch (((SeventhScreen)panels.get(7)).getAnswers()[i]){
                  case 1:answer +=  "sequential".toUpperCase();
                  break;
                  case 2:answer +=  "diverging".toUpperCase();
@@ -243,12 +285,13 @@ public class Main extends javax.swing.JFrame {
                  case 3:answer +=  "rainbow".toUpperCase();
                  break;
              }
-             results += (i+1) + answer +"\n";
+             results += answer +"\n";
          }
          results +="Ukol 3\n";
-         for(int i= 0; i<((NinthScreen)panels.get(8)).getAnswers().length; i++){
-             results +=(i+1) + ". " + ((NinthScreen)panels.get(8)).getFolders().get(i)+ ": ";
-             String answ = ((NinthScreen)panels.get(8)).getAnswers()[i];
+         for(int i= 0; i<((NinthScreen)panels.get(9)).getAnswers().length; i++){
+             results +=(i+1) + ". " + ((NinthScreen)panels.get(9)).getFolders().get(i)+ ": \n";
+             results += times.get(i+16) + " ms \n";
+             String answ = ((NinthScreen)panels.get(9)).getAnswers()[i];
              String answer = "";
              if(answ.contains("diverging")){
                  answer = "COLORMAP DIVERGING";
@@ -271,22 +314,9 @@ public class Main extends javax.swing.JFrame {
              results += answer +"\n";
          }
          
-          BufferedWriter writer = null;
-        try {
-            String timeLog = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-            File logFile = new File(timeLog+".txt");
-                System.out.println(logFile.getCanonicalPath());
-
-            writer =new BufferedWriter(new OutputStreamWriter( new FileOutputStream(logFile), "UTF-8")); 
-            writer.write(results);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                writer.close();
-            } catch (Exception e) {
-            }
-        }
+         Saver saver = new Saver(results);
+         new Thread(saver).start();       
+        
          
     }
 
@@ -340,5 +370,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel timerLabel;
     // End of variables declaration//GEN-END:variables
 }

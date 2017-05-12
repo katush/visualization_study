@@ -150,6 +150,7 @@ public class SeventhScreen extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         errorLabel = new javax.swing.JLabel();
         countLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -171,17 +172,24 @@ public class SeventhScreen extends javax.swing.JPanel {
         jPanel3.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Vyberte  barevné  schéma,  které  nejlépe  zobrazuje  rozdíly  mezi dvěma obličeji.");
+        jLabel1.setText("Kliknutím na obrázek vyberte schéma, keré nejlépe zobrauje rozdíly mezi dvěma obličeji.");
         jLabel1.setMaximumSize(new java.awt.Dimension(250, 22));
         jLabel1.setMinimumSize(new java.awt.Dimension(270, 22));
         jLabel1.setPreferredSize(new java.awt.Dimension(250, 22));
 
         errorLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         errorLabel.setForeground(new java.awt.Color(255, 0, 0));
+        errorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         countLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         countLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         countLabel.setText("1/10");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel2.setText("Kliknutím pravého tlačítka myši je možné zvětšit velikost obrázku.");
+        jLabel2.setMaximumSize(new java.awt.Dimension(250, 22));
+        jLabel2.setMinimumSize(new java.awt.Dimension(270, 22));
+        jLabel2.setPreferredSize(new java.awt.Dimension(250, 22));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -191,9 +199,13 @@ public class SeventhScreen extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(countLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(errorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(126, 126, 126)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -201,11 +213,13 @@ public class SeventhScreen extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(countLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(countLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
         );
 
         jPanel2.add(jPanel3, new java.awt.GridBagConstraints());
@@ -261,6 +275,7 @@ public class SeventhScreen extends javax.swing.JPanel {
     private javax.swing.JLabel countLabel;
     private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

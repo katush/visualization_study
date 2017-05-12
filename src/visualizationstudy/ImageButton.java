@@ -112,13 +112,15 @@ public class ImageButton extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
-    i = new ImageIcon(file.getPath());
-    if(1450/2000 >= this.getWidth()/this.getHeight()){
-      i = new ImageIcon(i.getImage().getScaledInstance(this.getWidth()-60, 1024 * (this.getWidth() - 60) / 1450, Image.SCALE_SMOOTH));
-    }else{
-      i = new ImageIcon(i.getImage().getScaledInstance(1450 * (this.getHeight() - 60) / 1024, this.getHeight() - 60, Image.SCALE_SMOOTH));
+    if(file !=null){
+         i = new ImageIcon(file.getPath());
+        if(1450/2000 >= this.getWidth()/this.getHeight()){
+          i = new ImageIcon(i.getImage().getScaledInstance(this.getWidth()-60, 1024 * (this.getWidth() - 60) / 1450, Image.SCALE_SMOOTH));
+        }else{
+          i = new ImageIcon(i.getImage().getScaledInstance(1450 * (this.getHeight() - 60) / 1024, this.getHeight() - 60, Image.SCALE_SMOOTH));
+        }
+        jLabel1.setIcon(i);    
     }
-    jLabel1.setIcon(i);
     this.repaint();
     }//GEN-LAST:event_formComponentResized
 

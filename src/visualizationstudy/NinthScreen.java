@@ -94,7 +94,7 @@ public class NinthScreen extends javax.swing.JPanel {
     private void addImages() {
         jPanel1.removeAll();
         for (int i = 0; i < 7; i++) {
-            if (i == 3 || i == 4) {
+            if (i == 0 || i == 1) {
                 ImageButton b = new ImageButton();
                 jPanel1.add(b);
             }
@@ -122,7 +122,7 @@ public class NinthScreen extends javax.swing.JPanel {
                         d.setBackground(Color.WHITE);
                         d.setVisible(true);
                     }
-                    if (SwingUtilities.isLeftMouseButton(evt)) {
+                    if (SwingUtilities.isLeftMouseButton(evt) && index != 0) {
                         for (int j = 0; j < 7; j++) {
                             buttons[j].setHighlighted(false);
                             buttons[j].setColor(new Color(240, 240, 240));
@@ -156,6 +156,7 @@ public class NinthScreen extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         errorLabel = new javax.swing.JLabel();
         countLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -177,29 +178,42 @@ public class NinthScreen extends javax.swing.JPanel {
         jPanel3.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Vyberte vizualizaci,  která  nejlépe  zobrazuje  rozdíly  mezi  dvěma obličeji.");
+        jLabel1.setText("Kliknutím na obrázek vyberte schéma, keré nejlépe zobrazuje rozdíly mezi dvěma obličeji.");
         jLabel1.setMaximumSize(new java.awt.Dimension(250, 22));
         jLabel1.setMinimumSize(new java.awt.Dimension(270, 22));
         jLabel1.setPreferredSize(new java.awt.Dimension(250, 22));
 
         errorLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         errorLabel.setForeground(new java.awt.Color(255, 0, 0));
+        errorLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         countLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         countLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         countLabel.setText("1/10");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel2.setText("Kliknutím pravého tlačítka myši je možné zvětšit velikost obrázku.");
+        jLabel2.setMaximumSize(new java.awt.Dimension(250, 22));
+        jLabel2.setMinimumSize(new java.awt.Dimension(270, 22));
+        jLabel2.setPreferredSize(new java.awt.Dimension(250, 22));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(countLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(errorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 820, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(countLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -207,11 +221,16 @@ public class NinthScreen extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(countLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(countLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(35, 35, 35))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jPanel2.add(jPanel3, new java.awt.GridBagConstraints());
@@ -244,7 +263,9 @@ public class NinthScreen extends javax.swing.JPanel {
                 File ic = new File(fl.getPath() + separatorChar + "icons");
                 ArrayList<File> images = new ArrayList<>();
                 images.addAll(Arrays.asList(ic.listFiles()));
+                images.remove(0);
                 Collections.shuffle(images);
+                images.add(0, ic.listFiles()[0]);
                 allImages.add(images);
                 folders.add(fl.getName());
             }
@@ -274,6 +295,7 @@ public class NinthScreen extends javax.swing.JPanel {
     private javax.swing.JLabel countLabel;
     private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
